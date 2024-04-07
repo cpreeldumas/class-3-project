@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>NYC's Most Polluting Housing</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+    <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="sidebar">
+        <div class="header">
+            <h1>NYC's Most Polluting Housing</h1>
+        </div>
+        <p>Local Law 84 requires private buildings over 25,000 ft2 and public sector buildings over 10,000 ft2 to report their energy and water consumption each year for public disclosure. </p>
+        <p>This map shows the latest data on NYC's 30 highest polluting multifamily housing buildings, as measured by the total greenhouse gases emitted due to energy used by the property per gross square foot (kgCO2e/ft2). </p>
+        <p>Each marker is color-coded by the buildings subsidized housing status, helping to identify high-consequence buildings under city authority.</p>
+        <p><strong>Click a marker for details</strong></p>
+        <div class="legend">
+            <div>
+                <span class="legend-key" style="background-color: #7dafff;"></span>
+                <span>100% Government Subsidized Housing</span>
+            </div>
+            <div>
+                <span class="legend-key" style="background-color: #faa141;"></span>
+                <span>Unsubsidized Housing</span>
+            </div>
+        </div>
+        <a class="source-code-link" href="https://github.com/cpreeldumas/class-3-project">Source Code</a>
+        <p>
+        <a class="opendata-link" href="https://data.cityofnewyork.us/Environment/Energy-and-Water-Data-Disclosure-for-Local-Law-84-/7x5e-2fxh/about_data">NYC OpenData Download</a></p>
+    </div>
+
+
+    <div id="map-container"></div>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script>
+    <script src="js/ghg-data.js"></script>
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>
