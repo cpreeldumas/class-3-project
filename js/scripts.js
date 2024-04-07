@@ -27,15 +27,21 @@ ghgData.forEach(function (dataRecord) {
     if (dataRecord.multifamily_housing_government_subsidized_housing === 'No') {
         color = '#faa141'
     }
- 
+
 
     // create a popup to attach to the marker
     const popup = new mapboxgl.Popup({
         offset: 24,
         anchor: 'bottom'
-    }).setText(
-        `${dataRecord.property_name} emits ${dataRecord.total_ghg_intensity} of greenhouse gases per square foot (kgCO2e/ft2)`
-    );
+    }).setHTML(`
+    <h3>${dataRecord.property_name}</h3>
+    <p>
+        <strong>Total GHG Intensity:</strong> ${dataRecord.total_ghg_intensity} kgCO2e/ft2<br>
+        <strong>Gross Floor Area:</strong> ${dataRecord.multifamily_housing_gross_floor_area_ft} sq. ft<br>
+        <strong>Number of Residential Units:</strong> ${dataRecord.multifamily_housing_total_number_of_residential_living_units}<br>
+        <strong>Year Built:</strong> ${dataRecord.year_built}
+    </p>
+`);
 
     // create a marker, set the coordinates, add the popup, add it to the map
     new mapboxgl.Marker({
