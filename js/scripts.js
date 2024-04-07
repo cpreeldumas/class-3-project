@@ -34,7 +34,7 @@ ghgData.forEach(function (dataRecord) {
         offset: 24,
         anchor: 'bottom'
     }).setHTML(`
-    <h3>${dataRecord.property_name}</h3>
+    <h3>${dataRecord.address_1}</h3>
     <p>
         <strong>Total GHG Intensity:</strong> ${dataRecord.total_ghg_intensity} kgCO2e/ft2<br>
         <strong>Gross Floor Area:</strong> ${dataRecord.multifamily_housing_gross_floor_area_ft} sq. ft<br>
