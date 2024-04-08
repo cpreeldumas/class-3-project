@@ -5,7 +5,7 @@ var mapOptions = {
     style: 'mapbox://styles/mapbox/dark-v11', // dark basemap
     center: [-73.96143, 40.73941], // starting position [lng, lat]
     zoom: 10, // starting zoom
-    hash: true
+    //hash: true
 }
 
 // instantiate the map
@@ -52,3 +52,34 @@ ghgData.forEach(function (dataRecord) {
         .setPopup(popup)
         .addTo(map);
 })
+
+// Define a function to fly to a random marker and open its popup
+function flyToRandomMarker() {
+    // Get a random marker from your data
+    const randomIndex = Math.floor(Math.random() * ghgData.length);
+    const randomMarker = ghgData[randomIndex];
+
+    // Fly the map to the coordinates of the random marker
+    map.flyTo({
+        center: [randomMarker.longitude, randomMarker.latitude],
+        zoom: 14, // Adjust the zoom level as needed
+        essential: true // Animation is considered essential, so it should be allowed during full-screen navigation UI
+    });
+}
+
+// Attach an event listener to the button element
+document.getElementById('flyToRandomMarker').addEventListener('click', flyToRandomMarker);
+
+// Define a function to return to the home view
+function returnToHome() {
+    // Fly the map to the initial center and zoom level
+    map.flyTo({
+        center: [-73.96143, 40.73941], // Initial center coordinates
+        zoom: 10, // Initial zoom level
+        essential: true // Animation is considered essential, so it should be allowed during full-screen navigation UI
+    });
+}
+
+// Attach an event listener to the "Return to Home" button
+document.getElementById('returnToHome').addEventListener('click', returnToHome);
+
